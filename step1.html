@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body,ul,li {
+			margin: 0;
+			padding: 0;
+		}
+		.main {
+			width:380px;
+			margin:100px auto;
+		}
+		.main ul {
+			list-style: none;
+		}
+		.main .item {
+			float:left;
+			width:84px;
+			line-height:23px;
+			font-size: 12px;
+			text-align:center;
+			margin-right: 9px;
+			color: #666;
+			border:1px solid #e5e5e5;
+			position:relative;
+		}
+		.main .item:nth-child(1) {
+			background-color: #F6F6F6;
+		}
+		.main .item:nth-child(1):after {
+			content:'';
+			display:block;
+			width:14px;
+			height:14px;
+			border: 1px solid #e5e5e5;
+			border-bottom:0px;
+			border-left:0px;
+			background-color: #f6f6f6;
+			transform:rotate(45deg) skew(10deg,10deg);
+			position:absolute;
+			right:-8px;
+			top:4px;
+			z-index:100;
+		}
+		.main .item:nth-child(2) {
+			border:1px solid #108EE9;
+			color: #fff;
+			background-color: #108EE9;
+			border:1px solid #108ee9;
+		}
+		.main .item:nth-child(2):before,
+		.main .item:nth-child(2):after {
+			content:'';
+			display:block;
+			width:14px;
+			height:14px;
+			border: 1px solid #108ee9;
+			border-bottom:0px;
+			border-left:0px;
+			background-color: #fff;
+			transform:rotate(45deg) skew(10deg,10deg);
+			position:absolute;
+			top:4px;
+		}
+		.main .item:nth-child(2):before {
+			background-color: #fff;
+			left:-8px;
+		}
+		.main .item:nth-child(2):after {
+			background-color: #108ee9;
+			right:-8px;
+			z-index:100;
+		}
+		.main .item:nth-child(3):before,
+		.main .item:nth-child(3):after {
+			content:'';
+			display:block;
+			width:14px;
+			height:14px;
+			border: 1px solid #e5e5e5;
+			border-bottom:0px;
+			border-left:0px;
+			background-color: #fff;
+			transform:rotate(45deg) skew(10deg,10deg);
+			position:absolute;
+			top:4px;
+		}
+		.main .item:nth-child(3):before {
+			left:-8px;
+		}
+		.main .item:nth-child(3):after {
+			right:-8px;
+			z-index:100;
+		}
+		.main .item:nth-child(4) {
+			margin-bottom:20px;
+			width:93px;
+			margin-right: 0;
+
+		}
+		.main .item:nth-child(4):before {
+			content:'';
+			display:block;
+			width:14px;
+			height:14px;
+			border: 1px solid #e5e5e5;
+			border-bottom:0px;
+			border-left:0px;
+			background-color: #fff;
+			transform:rotate(45deg) skew(10deg,10deg);
+			position:absolute;
+			left:-8px;
+			top:4px;
+		}
+		.main .last {
+			float:right;
+			width:93px;
+			margin-right: 0;
+			color: #D0021B;
+			border:1px solid #D0021B;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+	</div>
+	<script src="step2.js"></script>
+<script>
+	(function(window,document){
+		var data = [{
+			"name":"待接单",
+			"status":"WAIT_ACCEPT",
+			"isShadowed":true
+		},{
+			"name":"待发货",
+			"status":"WAIT_DELIVER",
+			"isShadowed":true,
+			"isCurrentStatus":true
+		},{
+			"name":"验货入库",
+			"status":"STOCK_IN"
+		},{
+			"name":"已完成",
+			"status":"DELIVERED"
+		}];
+		var ul = ArrowGroup({data:data});
+		document.getElementsByTagName('div')[0].appendChild(ul);
+
+	})(window,document);
+</script>
+</body>
+</html>
